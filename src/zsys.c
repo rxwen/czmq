@@ -28,6 +28,7 @@
 #else
 # include <unistd.h>
 #endif
+#include <net/if.h>
 
 //  --------------------------------------------------------------------------
 //  Signal handling

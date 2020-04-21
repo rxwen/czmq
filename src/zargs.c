@@ -242,7 +242,8 @@ void
 zargs_print (zargs_t *self) {
     assert (self);
     fprintf (stderr, "%s ", self->progname);
-    for (const char *pvalue = zargs_param_first (self);
+    const char *pvalue, *arg;
+    for (pvalue = zargs_param_first (self);
                     pvalue != NULL;
                     pvalue = zargs_param_next (self)) {
         const char *pname = zargs_param_name (self);
@@ -252,7 +253,7 @@ zargs_print (zargs_t *self) {
             fprintf (stderr, "%s : %s ", pname, pvalue);
 	fprintf (stderr, ", ");
     }
-    for (const char *arg = zargs_first (self);
+    for (arg = zargs_first (self);
                      arg != NULL;
                      arg = zargs_next (self)) {
         fprintf (stderr, "%s ", arg);

@@ -23,6 +23,7 @@
 */
 
 #include "czmq_classes.h"
+#include <net/if.h>
 
 //  Structure of an interface
 typedef struct {

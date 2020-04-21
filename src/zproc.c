@@ -635,7 +635,8 @@ s_zproc_execve (zproc_t *self)
         char **argv2 = arr_new (zlist_size (self->args) + 1);
 
         size_t i = 0;
-        for (char *arg = (char*) zlist_first (self->args);
+        char *arg;
+        for (arg = (char*) zlist_first (self->args);
                    arg != NULL;
                    arg = (char*) zlist_next (self->args)) {
             arr_add_ref (argv2, i, arg);
@@ -650,7 +651,7 @@ s_zproc_execve (zproc_t *self)
             env = arr_new (zhash_size (self->env) + 1);
 
             i = 0;
-            for (char *arg = (char*) zhash_first (self->env);
+            for (arg = (char*) zhash_first (self->env);
                        arg != NULL;
                        arg = (char*) zhash_next (self->env)) {
                 char *name = (char*) zhash_cursor (self->env);
